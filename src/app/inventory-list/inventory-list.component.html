@@ -1,0 +1,42 @@
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center" *ngIf="Products.length == 0">
+      <p>There is no product added yet!</p>
+    </div>
+    <button class="btn btn-outline-primary" routerLink="/create-inventory">Add Product</button>
+  
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="Products.length !== 0">
+      <h3 class="mb-3 text-center">Product List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <!-- <th scope="col">Product Id</th> -->
+              <th scope="col">Product Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">CreatedDate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of Products">
+              <!-- <td>{{product.productId}}</td> -->
+              <td>{{product.productName}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.quantity}}</td>
+              <td>{{product.createdDate | date}}</td>
+              <td>
+    <button class="btn btn-outline-primary" routerLink="/inventory-edit/{{product.productId}}">Edit</button>
+    <!-- <span class="edit" routerLink="/inventory-edit/{{product.productId}}">Edit</span> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">
+        Login
+      </div>
+      <div class="card-body">
+        <form #loginForm='ngForm' (ngSubmit)="onLogin(loginForm)">
+          <div class="form-group col-12">
+            <label>User Name</label>
+            <input class="form-control" required [(ngModel)]="user.loginId" name="userName" placeholder="User Name">
+          </div>
+
+          <div class="form-group col-12">
+            <label>Password</label>
+            <input class="form-control" required type="password" [(ngModel)]="user.password" name="password" placeholder="Password">
+          </div>
+
+          <div class="form-group col-12">
+            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
